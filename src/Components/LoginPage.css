@@ -1,0 +1,55 @@
+.firstrow
+{
+    max-width: 100%;
+    height: 40vh;
+    background-color: #2d9289 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.firstrow h1
+{
+    font-size: 46px;
+    color: #ffffff;
+}
+
+.firstrow h3
+{
+    font-size: 16px;
+    color: #ffffff;
+    margin-top: 10px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.secondrow
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.secondrow .Form
+{
+    margin: auto; 
+    border-radius: 20px; 
+    min-width: 300px !important; 
+    margin-top: 30px;
+}
+
+.login-form {
+    max-width: 300px;
+  }
+.login-form-forgot {
+    float: right;
+  }
+.ant-col-rtl .login-form-forgot {
+    float: left;
+  }
+.login-form-button {
+    width: 100%;
+    color: #ffffff !important;
+    margin-bottom: 10px;
+  }
