@@ -13,3 +13,31 @@
 {
   border-color: #e7dbdb !important;
 }
+
+.navbar ul
+{
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center;
+  
+}
+
+.navbar li
+{
+  list-style-type: none !important;
+  padding: 15px;
+  font-size: 18px;
+  font-weight: 600;
+} 
+
+a:-webkit-any-link
+{
+  text-decoration: none;
+  color: rgb(6, 16, 100) !important;
+}
+
+.data
+{
+  display: flex !important;
+  flex-direction: row !important;
+}

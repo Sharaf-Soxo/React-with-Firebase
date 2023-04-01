@@ -1,34 +1,35 @@
 import { LockOutlined, MailOutlined } from '@ant-design/icons';
 import { Button, Checkbox, Form, Input } from 'antd';
-import React, { useState } from "react";
-import { app } from "./Firebase";
+import { collection, addDoc } from "firebase/firestore"; 
 import './LoginPage.css'
+import React, { useState } from "react";
+import { db } from "./Firebase";
+
 
 const LoginPage = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loader, setLoader] = useState(false);
+
 
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    console.log(e);
-    setLoader(true);
-
-    app.collection("Login").add({email: email, name: password,})
-      .then(() => {
-        setLoader(false);
-        alert("Login Successfull");
-      })
-      .catch((error) => {
-        alert(error.message);
-        setLoader(false);
-      });
-
     setEmail("");
     setPassword("");
+    addUser();
+
   };
 
+   async function addUser(){ 
+    try {
+      const docRef = await addDoc(collection(db, "Users"), {
+        email: email,
+        password: password,
+      });
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+    }
 
   return (
     <div>
@@ -79,7 +80,7 @@ const LoginPage = () => {
         </a>
       </Form.Item>
       <Form.Item>
-        <Button type="submit" htmlType="submit" className="login-form-button" style={{ background: loader ? "#ccc" : "#00308F"}}>
+        <Button type="submit" htmlType="submit" className="login-form-button" style={{ background: "#00308F"}}>
           Login
         </Button>
         Or &nbsp; <a href="https://abcd.com">Register now!</a>
